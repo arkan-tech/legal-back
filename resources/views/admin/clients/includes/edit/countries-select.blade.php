@@ -1,0 +1,10 @@
+@forelse($countries as $item)
+
+    @if(isset($client) )
+        <option value="{{$item->id}}" {{$client->country_id ==$item->id ?'selected':''}}>{{$item->name}} </option>
+    @else
+        <option value="{{$item->id}}">{{$item->name}} </option>
+    @endif
+@empty
+    <option value="">-- لا يوجد دولة --</option>
+@endforelse

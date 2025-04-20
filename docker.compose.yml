@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  laravel-backend-production:
+    build: .
+    volumes:
+      - /var/www/html/ymtaz/storage/logs:/var/www/html/storage/logs
+      - /var/www/html/ymtaz/public/uploads:/var/www/html/public/uploads
+    ports:
+      - "8484:9000"
+#          docker exec -it root_ymtaz-laravel-production_1 php artisan migrate

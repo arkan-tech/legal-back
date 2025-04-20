@@ -1,0 +1,167 @@
+
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body
+{
+font-family: 'Cairo', sans-serif;
+}
+
+.header-top
+{
+    background-size: cover;
+    position: relative;
+    height: 100%
+}
+.navbar
+{
+position: absolute;
+top: 0;
+width: 100%
+}
+.bg-light
+{
+    background-color: transparent!important;
+}
+.content-header
+{
+color: #fff
+}
+.content-header p
+{
+padding: 5px;
+font-size: 14px;
+margin-top: 10px
+}
+.img-logo
+{
+height: 110px}
+.navbar-light .navbar-nav .nav-link {
+   color: #fff;
+    margin: 0 6px;
+}
+.login
+{
+background: #FFFFFF 0% 0% no-repeat padding-box;
+border-radius: 28px 5px;
+color: #9D792D;
+font-size: 14px;
+padding: 8px 30px}
+#about
+{
+margin: 70px 0}
+.logo-about
+{
+margin-bottom: 30px}
+
+.logo-aboutimg
+{
+    height: 40px
+}
+.logo-about h4
+{
+    color:#A17C30
+}
+.about-right h4
+{
+color: #A17C30;
+    font-weight: bold
+}
+.about-right p
+{
+color: #666666;
+margin-top: 20px}
+#services
+{
+    margin: 70px 0;
+    background-image: url(../images/section2-bg.png);
+    background-size: cover;
+
+}
+.service-office
+{
+text-align: center;
+color: #fff;
+padding-top: 60px}
+.right-content-service
+{
+text-align: right}
+.header-content
+{
+margin-top: 50px}
+.header-content img
+{
+height: 25px}
+.header-content p
+{
+    color: #FFAE00
+}
+.desc
+{
+    margin-bottom:50px
+}
+.desc img
+{
+    height: 25px;
+
+}
+.desc p
+{
+color: #fff;
+    font-size: 14px
+}
+.service-img
+{
+    margin-top: 30px;
+    height: 100%;
+    width: 100%
+}
+.card-owlcarousl
+{
+border: 2px solid #E1E1E1;
+border-radius: 10px;
+opacity: 1;
+    padding: 10px;
+    text-align: center
+}
+.card-owlcarousl img
+{
+height: 200px;
+display: inline-block!important;
+width: 170px!important;
+}
+
+.card-owlcarousl h5
+{
+    color: #666666;
+    font-size: 20px
+
+}
+.card-owlcarousl p
+{
+    color: #666666;
+    font-size: 13px
+}
+.btn-more
+{
+    color: #FFFFFF;
+    background: #A37D2B;
+    border-radius: 5px;
+opacity: 1;
+    padding: 5px 55px
+}
+.owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background:#A37D2B!important;
+}
+
+#footer
+{
+    background: #A37D2B;
+    color: #fff;
+    padding: 20px 50px
+}

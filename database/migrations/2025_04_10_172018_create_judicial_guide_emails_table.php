@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+                if (!Schema::hasTable('judicial_guide_emails')) {
+Schema::create('judicial_guide_emails', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('email');
+            $table->unsignedBigInteger('judicial_guide_id')->index('judicial_guide_emails_judicial_guide_id_foreign');
+            $table->timestamps();
+        });
+        }
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('judicial_guide_emails');
+    }
+};

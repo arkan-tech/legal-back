@@ -1,0 +1,7 @@
+{
+  "listItems":
+  [
+    { "name": "Dashboard", "url": "/", "icon": "home" }
+
+  ]
+}

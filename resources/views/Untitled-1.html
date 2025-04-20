@@ -1,0 +1,254 @@
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>إتمام عملية الدفع</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.moyasar.com/mpf/1.15.0/moyasar.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+
+    <style>
+        body {
+            background-color: #f7f9fc;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .payment-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-title {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="payment-container">
+        <h2 class="payment-title">إتمام عملية الدفع</h2>
+        <div class="mysr-form mysr-form-moyasarForm mysr-form-fixedWidth" id="mysr-form-form-el" payment-form="true">
+            <div class="mysr-form-methodButtons"></div>
+            <div>
+                <div class="mysr-form-method">
+                    <form>
+                        <div class="mysr-form-inputGroup">
+                            <div class="mysr-form-labelGroup"><label class="mysr-form-label" for="mysr-cc-name">الاسم
+                                    على البطاقة</label><span
+                                    class="mysr-form-requiredAlert mysr-form-requiredAlertHidden">مطلوب</span></div>
+                            <div><input id="mysr-cc-name" class="mysr-form-input" placeholder="الاسم على البطاقة"
+                                    autocomplete="ccname" dir="ltr">
+                                <div class="mysr-form-alertContainer"><span
+                                        class="mysr-form-inputAlert mysr-form-alertDanger mysr-form-inputAlertHidden"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mysr-form-inputGroup">
+                            <div class="mysr-form-labelGroup"><label class="mysr-form-label"
+                                    for="mysr-cc-number">معلومات بطاقة الإئتمان</label>
+                                <span class="mysr-form-requiredAlert mysr-form-requiredAlertHidden">مطلوب</span>
+                            </div>
+                            <div class="mysr-form-cardInfo">
+                                <div class="mysr-form-cardInfoElement mysr-form-ccInputGroup mysr-form-cardInfo"
+                                    dir="ltr"><input id="mysr-cc-number" type="text"
+                                        class="mysr-form-input mysr-form-bottomLeftRadius0 mysr-form-bottomRightRadius0"
+                                        placeholder="1234 5678 9101 1121" autocomplete="cc-number" inputmode="numeric">
+                                    <div class="mysr-form-ccIconsGroup"><span
+                                            class="mysr-form-ccIcon mysr-form-ccIconAmex"></span><span
+                                            class="mysr-form-ccIcon mysr-form-ccIconMada"></span><span
+                                            class="mysr-form-ccIcon mysr-form-ccIconVisa"></span><span
+                                            class="mysr-form-ccIcon mysr-form-ccIconMastercard"></span></div>
+                                </div>
+                                <div class="mysr-form-cardInfoElement mysr-form-ccInputGroup mysr-form-cardInfo"
+                                    dir="ltr"><input
+                                        class="mysr-form-input mysr-form-cardInfoElement mysr-form-cardInfoHalfWidth mysr-form-topLeftRadius0 mysr-form-topRightRadius0 mysr-form-bottomRightRadius0"
+                                        type="text" placeholder="MM / YY" autocomplete="cc-exp"
+                                        inputmode="numeric"><input
+                                        class="mysr-form-input mysr-form-cardInfoElement mysr-form-cardInfoHalfWidth mysr-form-topLeftRadius0 mysr-form-topRightRadius0 mysr-form-bottomLeftRadius0"
+                                        type="text" placeholder="CVC" autocomplete="cc-csc" inputmode="numeric">
+                                </div>
+                                <div class="mysr-form-alertContainer"></div>
+                            </div>
+                        </div>
+                        <button class="mysr-form-button">
+                            <span dir="ltr"
+                                style="display: inline-flex; align-items: center; justify-content: center; gap: 4px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1124.14 1256.39"
+                                    style="height: 19px; fill: white;">
+                                    <path
+                                        d="M699.62,1113.02h0c-20.06,44.48-33.32,92.75-38.4,143.37l424.51-90.24c20.06-44.47,33.31-92.75,38.4-143.37l-424.51,90.24Z">
+                                    </path>
+                                    <path
+                                        d="M1085.73,895.8c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.33v-135.2l292.27-62.11c20.06-44.47,33.32-92.75,38.4-143.37l-330.68,70.27V66.13c-50.67,28.45-95.67,66.32-132.25,110.99v403.35l-132.25,28.11V0c-50.67,28.44-95.67,66.32-132.25,110.99v525.69l-295.91,62.88c-20.06,44.47-33.33,92.75-38.42,143.37l334.33-71.05v170.26l-358.3,76.14c-20.06,44.47-33.32,92.75-38.4,143.37l375.04-79.7c30.53-6.35,56.77-24.4,73.83-49.24l68.78-101.97v-.02c7.14-10.55,11.3-23.27,11.3-36.97v-149.98l132.25-28.11v270.4l424.53-90.28Z">
+                                    </path>
+                                </svg>
+                                <span>{{ $encodedAmount }}</span></span></button>
+                    </form>
+                </div>
+            </div>
+            <div class="mysr-form-footer"><a href="https://moyasar.com/?ref=payment-form-v1.15.0" target="_blank">خدمة
+                    الدفع مقدمة من قبل <strong>ميسر</strong></a><span>وضع المدفوعات التجريبي ، الرجاء عدم استخدامه في
+                    البيئة التشغيلية!</span></div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function getCardType(number) {
+            const cleaned = number.replace(/\s+/g, '');
+            if (/^4/.test(cleaned)) return 'visa';
+            if (/^5[1-5]/.test(cleaned)) return 'mastercard';
+            if (/^3[47]/.test(cleaned)) return 'amex';
+            if (/^6(011|5)/.test(cleaned) || /^4(86|87|88|89)/.test(cleaned)) return 'mada'; // مثال تقريبي لمدا
+            return 'unknown';
+        }
+
+        const cardInput = document.getElementById('mysr-cc-number');
+        const icons = {
+            visa: document.querySelector('.mysr-form-ccIconVisa'),
+            mastercard: document.querySelector('.mysr-form-ccIconMastercard'),
+            amex: document.querySelector('.mysr-form-ccIconAmex'),
+            mada: document.querySelector('.mysr-form-ccIconMada')
+        };
+
+        function updateIcons(type) {
+            Object.entries(icons).forEach(([key, el]) => {
+                if (type === key) {
+                    el.style.opacity = '1';
+                    el.style.display = 'inline-block';
+                } else {
+                    el.style.opacity = '0.1';
+                    el.style.display = 'none';
+                }
+            });
+        }
+
+        cardInput.addEventListener('input', function() {
+
+
+            let value = this.value.replace(/\D/g, '').slice(0, 16);
+            value = value.replace(/(.{4})/g, '$1 ').trim();
+            this.value = value;
+
+
+            const type = getCardType(this.value);
+
+
+
+            if (type !== 'unknown') {
+                updateIcons(type);
+            } else {
+                Object.values(icons).forEach(el => {
+                    el.style.opacity = '1';
+                    el.style.display = 'inline-block';
+                });
+            }
+        });
+
+
+        const expiryInput = document.querySelector('input[placeholder="MM / YY"]');
+        expiryInput.addEventListener('input', function(e) {
+            let value = this.value.replace(/\D/g, '');
+            if (value.length > 4) value = value.slice(0, 4);
+
+            if (value.length >= 3) {
+                value = value.slice(0, 2) + ' / ' + value.slice(2);
+            }
+
+            this.value = value;
+        });
+
+
+        const cvcInput = document.querySelector('input[placeholder="CVC"]');
+        cvcInput.addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '').slice(0, 3);
+        });
+    </script>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('mysr-cc-name').value.trim();
+            const cardNumber = document.getElementById('mysr-cc-number').value.replace(/\s+/g, '');
+            const expiry = document.querySelector('input[placeholder="MM / YY"]').value.trim();
+            const cvc = document.querySelector('input[placeholder="CVC"]').value.trim();
+
+            const [month, year] = expiry.split('/').map(item => item.trim());
+
+            const data = {
+                name: name,
+                card_number: cardNumber,
+                month: month,
+                year: year,
+                cvc: cvc,
+                amount: "{{ $encodedAmount }}",
+                currency: "{{ $encodedCurrency }}",
+                description: "{{ $encodedDescription }}",
+                userId: "{{ $encodedUserId }}",
+                refId: "{{ $encodedserviceId }}"
+            };
+
+            if (Object.values(data).some(value => value === "" || value === undefined)) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+
+
+            const key = CryptoJS.enc.Utf8.parse('12345678901234567890123456789012');
+            const iv = CryptoJS.lib.WordArray.random(16); // 16 بايت
+            const encrypted = CryptoJS.AES.encrypt(JSON.stringify(data), key, {
+                iv: iv,
+                mode: CryptoJS.mode.CBC,
+                padding: CryptoJS.pad.Pkcs7
+            });
+
+            const encryptedPayload = {
+                data: encrypted.ciphertext.toString(CryptoJS.enc.Base64),
+                iv: iv.toString(CryptoJS.enc.Base64)
+            };
+
+
+            try {
+
+
+                const response = await fetch('/api/client/payments/make-payment', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(encryptedPayload)
+                });
+
+                const result = await response.json();
+                console.log('Response:', result);
+
+
+
+                alert(result.message || 'تمت العملية بنجاح');
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء الإرسال');
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
+
+                           

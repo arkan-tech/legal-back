@@ -1,0 +1,6 @@
+# pack-refs with: peeled fully-peeled sorted 
+fbbde6ec863558307163d5160ce3da837390fb93 refs/heads/dev
+fc6783776d89bb551ad7b847822ba80c0bb3a29e refs/heads/master
+7a41bae79262af641ed3d482525588248bf8c652 refs/heads/payment-gateway
+f0719654cd95ba881c9585e78525d1b4939a77b7 refs/heads/reminder
+38e462c5ec46562a8c44f841e6b2ded4a79de37d refs/heads/test
